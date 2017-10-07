@@ -47,7 +47,7 @@ public class CustomUserDetailsService /*
         /*这里我为了方便，就直接返回一个用户信息，实际当中这里修改为查询数据库或者调用服务什么的来获取用户信息*/
 
         //token.getName()是唯一标识
-        UserInfo userInfo = ldapDao.getUserDN("zhangsan");
+        UserInfo userInfo = ldapDao.getUserDN(token.getName());
         Set<AuthorityInfo> authorities = new HashSet<AuthorityInfo>();
         //设置权限
         AuthorityInfo authorityInfo = new AuthorityInfo(userInfo.getDescription());

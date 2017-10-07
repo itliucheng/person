@@ -55,7 +55,7 @@ public class LdapDao {
         }
         return userInfo;
     }
-    public void testAdd() throws Exception {
+    public void add(String uid, String name, String mail, String password,String description) throws Exception {
         Attributes attrs = new BasicAttributes(true);
         Attribute objclass = new BasicAttribute("objectclass");
         String[] attrObjectClassPerson = {"inetOrgPerson",
@@ -65,16 +65,16 @@ public class LdapDao {
             objclass.add(ocp);
         }
         attrs.put(objclass);
-        String uid = "zhangsan3";
         String userDN = "uid=" + uid + "," + "ou=system";
         attrs.put("cn", uid);
         attrs.put("sn", uid);
-        attrs.put("displayName", "张三3");
-        attrs.put("description", "not null3");
-        attrs.put("mail", "abc3@126.com");
-        attrs.put("userPassword", "111111".getBytes("UTF-8"));
+        attrs.put("displayName", name);
+        attrs.put("description", description);
+        attrs.put("mail", mail);
+        attrs.put("userPassword", password.getBytes("UTF-8"));
         ctx.createSubcontext(userDN, attrs);
     }
+
     public void testDelete() {
         String uid = "zhangsan";
         String userDN = "uid=" + uid + "," + "ou=system";
