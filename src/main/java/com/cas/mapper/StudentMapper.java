@@ -28,3 +28,27 @@ public interface StudentMapper {
     @Update("UPDATE student SET STATUS = #{status} WHERE uid= #{uid}")
     void updateStatus(@Param("uid") String uid, @Param("status") boolean status);
 }
+//sql
+/*
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` varchar(50) NOT NULL DEFAULT '' COMMENT '登陆名',
+  `name` varchar(50) NOT NULL DEFAULT '' COMMENT '显示名',
+  `role` int(11) NOT NULL DEFAULT '0' COMMENT '角色 1学生 2管理员',
+  `mail` varchar(100) NOT NULL DEFAULT '' COMMENT '邮箱',
+  `password` varchar(100) NOT NULL DEFAULT '' COMMENT '密码',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否导入ldap 0未导入 1导入',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8
+
+CREATE TABLE `student` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` varchar(50) NOT NULL DEFAULT '' COMMENT '登陆名',
+  `name` varchar(50) NOT NULL DEFAULT '' COMMENT '显示名',
+  `role` int(11) NOT NULL DEFAULT '0' COMMENT '角色 1学生 2管理员',
+  `mail` varchar(100) NOT NULL DEFAULT '' COMMENT '邮箱',
+  `password` varchar(100) NOT NULL DEFAULT '' COMMENT '密码',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否导入ldap 0未导入 1导入',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8
+* */
